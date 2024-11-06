@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <script src="https://cdn.jsdelivr.net/npm/angular@1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="taskApp" ng-controller="taskController">
+
+<h1>Task Management App</h1>
+
+<form ng-submit="addTask()">
+    <input type="text" ng-model="newTask.title" placeholder="Task Title" required>
+    <input type="text" ng-model="newTask.description" placeholder="Task Description">
+    <button type="submit">Add Task</button>
+</form>
+
+<h2>Tasks</h2>
+<ul>
+    <li ng-repeat="task in tasks">
+        {{ task.title }}: {{ task.description }}
+    </li>
+</ul>
+
+<script>
+    const app = angular.module("taskApp", []);
+    app.controller("taskController", function($scope, $http) {
+        $scope.tasks = [];
+        $scope.newTask = {};
+
+        $scope.loadTasks = function() {
+            $http.get("/tasks").then(response => {
+                $scope.tasks = response.data;
+            });
+        };
+
+        $scope.addTask = function() {
+            $http.post("/tasks", $scope.newTask).then(response => {
+                $scope.tasks.push(response.data);
+                $scope.newTask = {};
+            });
+        };
+
+        $scope.loadTasks(); // Load tasks on page load
+    });
+</script>
+</body>
+</html>
