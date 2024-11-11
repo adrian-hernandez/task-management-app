@@ -1,4 +1,5 @@
 package com.example.task_management_app.controller;
+
 import com.example.task_management_app.model.Task;
 import com.example.task_management_app.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,15 @@ public class TaskController {
     public List<Task> getTasks() {
         return taskService.getTasks();
     }
-}
 
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable String id, @RequestBody Task updatedTask) {
+        updatedTask.setId(id);
+        return taskService.updateTask(updatedTask);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable String id) {
+        taskService.deleteTask(id);
+    }
+}

@@ -16,31 +16,34 @@ import java.util.concurrent.ConcurrentMap;
 @Service
 public class TaskService {
 
-    private HTreeMap taskMap;
+    private HTreeMap<String, Task> taskMap;
 
     @PostConstruct
     public void init() {
-        // Create an in-memory database using MapDB
-        DB db = DBMaker.memoryDB().make();  // .make() creates the DB
-
-        // Correctly create a HTreeMap (ConcurrentMap) using MapDB
-        taskMap = db
-                .hashMap("tasks")  // "tasks" is the name of the map
-                .keySerializer(Serializer.STRING) // Serializer for the key (String)
-                .valueSerializer(Serializer.JAVA) // Serializer for the value (Task)
-                .create();  // Use .create() instead of .make()
+        DB db = DBMaker.memoryDB().make();
+        taskMap = db.hashMap("tasks")
+                .keySerializer(Serializer.STRING)
+                .valueSerializer(Serializer.JAVA)
+                .create();
     }
 
     public Task createTask(Task task) {
-        // Automatically generate a UUID for the task ID
         String taskId = UUID.randomUUID().toString();
-        task.setId(taskId);  // Set the generated ID for the task
-
-        taskMap.put(taskId, task); // Store the task in the map using the generated ID
+        task.setId(taskId);
+        taskMap.put(taskId, task);
         return task;
     }
 
     public List<Task> getTasks() {
         return new ArrayList<>(taskMap.values());
+    }
+
+    public void deleteTask(String id) {
+        taskMap.remove(id);
+    }
+
+    public Task updateTask(Task task) {
+        taskMap.put(task.getId(), task);
+        return task;
     }
 }

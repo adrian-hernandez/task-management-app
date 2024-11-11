@@ -19,7 +19,9 @@
 <h2>Tasks</h2>
 <ul>
     <li ng-repeat="task in tasks">
-        {{ task.title }}: {{ task.description }}
+        <input type="checkbox" ng-model="task.completed" ng-change="updateTask(task)">
+        <span ng-class="{'completed-task': task.completed}">{{ task.title }}: {{ task.description }}</span>
+        <button ng-click="deleteTask(task.id)">Delete</button>
     </li>
 </ul>
 
@@ -42,8 +44,28 @@
             });
         };
 
+        $scope.updateTask = function(task) {
+            $http.put("/tasks/" + task.id, task).then(response => {
+                // Optionally update the UI
+            });
+        };
+
+        $scope.deleteTask = function(id) {
+            $http.delete("/tasks/" + id).then(response => {
+                $scope.tasks = $scope.tasks.filter(task => task.id !== id);
+            });
+        };
+
         $scope.loadTasks(); // Load tasks on page load
     });
 </script>
+
+<style>
+    .completed-task {
+        text-decoration: line-through;
+        color: grey;
+    }
+</style>
+
 </body>
 </html>
