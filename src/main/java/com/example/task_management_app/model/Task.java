@@ -3,11 +3,20 @@ package com.example.task_management_app.model;
 import java.io.Serializable;
 
 public class Task implements Serializable {
-
     private String id;
     private String title;
     private String description;
     private boolean completed;  // New field for task completion status
+
+    public Task(String id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.completed = false;
+    }
+
+    public Task() {
+    }
 
     // Getters and Setters
     public String getId() {

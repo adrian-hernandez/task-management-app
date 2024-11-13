@@ -1,17 +1,13 @@
 package com.example.task_management_app.service;
 
 import com.example.task_management_app.model.Task;
-import org.mapdb.DB;
-import org.mapdb.DBMaker;
 import org.mapdb.HTreeMap;
-import org.mapdb.Serializer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentMap;
 
 @Service
 public class TaskService {
@@ -20,10 +16,12 @@ public class TaskService {
 
     @PostConstruct
     public void init() {
-        DB db = DBMaker.memoryDB().make();
-        taskMap = db.hashMap("tasks")
-                .keySerializer(Serializer.STRING)
-                .valueSerializer(Serializer.JAVA)
+        // Initialize taskMap with real in-memory HTreeMap and specify types
+        taskMap = org.mapdb.DBMaker.memoryDB()
+                .make()
+                .hashMap("tasks")
+                .keySerializer(org.mapdb.Serializer.STRING)
+                .valueSerializer(org.mapdb.Serializer.JAVA)
                 .create();
     }
 
@@ -38,12 +36,23 @@ public class TaskService {
         return new ArrayList<>(taskMap.values());
     }
 
-    public void deleteTask(String id) {
-        taskMap.remove(id);
+    public boolean deleteTask(String id) {
+        try {
+            taskMap.remove(id);
+            return true;
+        } catch(Exception e){
+            System.out.println("An error occurred while deleting task " + id + " " + e.getMessage());
+            return false;
+        }
     }
 
     public Task updateTask(Task task) {
         taskMap.put(task.getId(), task);
         return task;
+    }
+
+    // Getter method for taskMap for testing purposes
+    public HTreeMap<String, Task> getTaskMap() {
+        return taskMap;
     }
 }
