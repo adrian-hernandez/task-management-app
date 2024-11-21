@@ -48,4 +48,12 @@ export class AppComponent implements OnInit {
     task.completed = !task.completed;
     this.taskService.updateTask(task).subscribe();
   }
+
+  deleteTask(task: Task) {
+    if (task.id) {
+      this.taskService.deleteTask(task.id).subscribe(() => {
+        this.tasks = this.tasks.filter(t => t.id !== task.id);
+      });
+    }
+  }
 }
