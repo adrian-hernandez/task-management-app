@@ -21,7 +21,7 @@ A simple task management application built with Spring Boot (backend) and Angula
 - Maven
 
 ### Frontend
-- Angular 17
+- Angular 19
 - TypeScript
 - HTML5/CSS3
 
@@ -35,19 +35,19 @@ A simple task management application built with Spring Boot (backend) and Angula
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-repo/task-management-app.git
+git clone https://github.com/your-repo/taskify.git
 ```
-2. Install Node.js dependencies: 
+
+2. Start the frontend:
 ```bash
-cd taskify
+cd frontend
 npm install
+ng serve
 ```
-3. Start the frontend development server:
+
+3. In a separate terminal, start the backend:
 ```bash
-ng serve frontend
-```
-4. In a separate terminal, start the backend:
-```bash
+cd backend
 mvn spring-boot:run
 ```
 
@@ -78,18 +78,19 @@ POST /tasks
 ## Development
 
 ### Frontend Development
-- The frontend code is located in `taskify/projects/frontend/src/app/`
-- Run `ng serve frontend` to start the development server
+- The frontend code is located in `frontend/src/app/`
+- Run `ng serve` from the frontend directory
 - Changes will automatically reload
 
 ### Backend Development
-- The backend code is in `src/main/java/com/example/task_management_app/`
-- Run tests using: `mvn test`
+- The backend code is in `backend/src/main/java/com/example/taskify/`
+- Run tests using: `mvn test` from the backend directory
 
 ## Testing
 
 The project includes unit tests for the service layer. Run the tests using:
 ```bash
+cd backend
 mvn test
 ```
 

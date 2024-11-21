@@ -6,28 +6,28 @@
     "frontend": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/frontend",
-      "sourceRoot": "projects/frontend/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/frontend",
-            "index": "projects/frontend/src/index.html",
-            "browser": "projects/frontend/src/main.ts",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/frontend/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/frontend/public"
+                "input": "public"
               }
             ],
             "styles": [
-              "projects/frontend/src/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -77,15 +77,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/frontend/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/frontend/public"
+                "input": "public"
               }
             ],
             "styles": [
-              "projects/frontend/src/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
