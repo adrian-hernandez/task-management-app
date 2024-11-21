@@ -1,0 +1,29 @@
+{
+  "name": "task-management-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "build": "tsc",
+    "clean": "rm -rf src/main/resources/static/js/*.js src/main/resources/static/js/*.js.map",
+    "build:clean": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrian-hernandez/task-management-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrian-hernandez/task-management-app/issues"
+  },
+  "homepage": "https://github.com/adrian-hernandez/task-management-app#readme",
+  "devDependencies": {
+    "@types/angular": "^1.8.5",
+    "typescript": "^5.0.0"
+  }
+}

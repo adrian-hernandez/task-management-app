@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./src/main/resources/static/js",
+    "rootDir": "./src/main/resources/static/js",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.promise"
+    ],
+    "types": [
+      "angular"
+    ]
+  },
+  "include": [
+    "src/main/resources/static/js/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+} 

@@ -33,3 +33,18 @@ build/
 .vscode/
 
 .java-version
+
+### Cursor
+*.cursorrules
+
+### Node ###
+node_modules/
+npm-debug.log
+package-lock.json
+
+### TypeScript ###
+*.js.map
+*.tsbuildinfo
+
+### Compiled JavaScript from TypeScript ###
+src/main/resources/static/js/*.js
