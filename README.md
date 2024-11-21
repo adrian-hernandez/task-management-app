@@ -1,6 +1,6 @@
 # Taskify
 
-A simple task management application built with Spring Boot (backend) and AngularJS (frontend). The application allows users to create, read, update, and delete tasks with an in-memory database using MapDB.
+A simple task management application built with Spring Boot (backend) and Angular (frontend). The application allows users to create, read, update, and delete tasks with an in-memory database using MapDB.
 
 ## Features
 
@@ -21,14 +21,14 @@ A simple task management application built with Spring Boot (backend) and Angula
 - Maven
 
 ### Frontend
-- AngularJS
+- Angular 17
 - TypeScript
 - HTML5/CSS3
 
 ## Prerequisites
 
 - Java 17 or higher
-- Node.js and npm (for TypeScript compilation)
+- Node.js and npm
 - Maven
 
 ## Setup and Installation
@@ -39,22 +39,20 @@ git clone https://github.com/your-repo/task-management-app.git
 ```
 2. Install Node.js dependencies: 
 ```bash
+cd taskify
 npm install
 ```
-3. Compile TypeScript files: 
+3. Start the frontend development server:
 ```bash
-npm run tsc
+ng serve frontend
 ```
-4. Build the project: 
-```bash
-mvn clean install
-```
-5. Run the application: 
+4. In a separate terminal, start the backend:
 ```bash
 mvn spring-boot:run
 ```
 
-The application will be available at `http://localhost:8080`
+The frontend will be available at `http://localhost:4200`
+The backend API will be available at `http://localhost:8080`
 
 ## API Endpoints
 
@@ -80,9 +78,9 @@ POST /tasks
 ## Development
 
 ### Frontend Development
-- The frontend code is located in `src/main/resources/static/`
-- Run `npm run tsc:watch` to automatically compile TypeScript changes
-- Refresh the browser to see changes
+- The frontend code is located in `taskify/projects/frontend/src/app/`
+- Run `ng serve frontend` to start the development server
+- Changes will automatically reload
 
 ### Backend Development
 - The backend code is in `src/main/java/com/example/task_management_app/`

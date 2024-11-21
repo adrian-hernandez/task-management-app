@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Task Manager</h1>
+  
+  <!-- Add New Task Form -->
+  <div class="add-task-form">
+    <input [(ngModel)]="newTask.title" placeholder="Task Title" />
+    <input [(ngModel)]="newTask.description" placeholder="Task Description" />
+    <button (click)="addTask()">Add Task</button>
+  </div>
+
+  <!-- Task List -->
+  <div class="task-list">
+    <div *ngFor="let task of tasks" class="task-item">
+      <div class="task-header">
+        <input 
+          type="checkbox" 
+          [checked]="task.completed"
+          (change)="toggleComplete(task)"
+        >
+        <h3 [class.completed]="task.completed">{{task.title}}</h3>
+      </div>
+      <p>{{task.description}}</p>
+    </div>
+  </div>
+</div>

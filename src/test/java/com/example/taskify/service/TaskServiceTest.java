@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.example.taskify.model.Task;
-import com.example.taskify.service.TaskService;
+import com.example.taskify.service.TaskServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class TaskServiceTest {
     private HTreeMap<String, Task> taskMap;  // Mocking taskMap
 
     @InjectMocks
-    private TaskService taskService;
+    private TaskServiceImpl taskService;
 
     @BeforeEach
     public void setUp() {
