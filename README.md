@@ -1,4 +1,4 @@
-# Task Management App
+# Taskify
 
 A simple task management application built with Spring Boot (backend) and AngularJS (frontend). The application allows users to create, read, update, and delete tasks with an in-memory database using MapDB.
 

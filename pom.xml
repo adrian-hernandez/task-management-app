@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>task-management-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Task Management App</name>
+	<name>Taskify</name>
 	<description>Demo project for Spring Boot + Angular</description>
 	<url/>
 	<licenses>
