@@ -1,4 +1,4 @@
-package com.example.task_management_app.model;
+package com.example.taskify.model;
 
 import java.io.Serializable;
 

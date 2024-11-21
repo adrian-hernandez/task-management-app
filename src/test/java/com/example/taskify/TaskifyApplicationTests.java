@@ -1,10 +1,10 @@
-package com.example.task_management_app;
+package com.example.taskify;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TaskManagementAppApplicationTests {
+class TaskifyApplicationTests {
 
 	@Test
 	void contextLoads() {

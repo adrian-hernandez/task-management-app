@@ -1,8 +1,9 @@
-package com.example.task_management_app.service;
+package com.example.taskify.service;
 
-import com.example.task_management_app.model.Task;
 import org.mapdb.HTreeMap;
 import org.springframework.stereotype.Service;
+
+import com.example.taskify.model.Task;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;

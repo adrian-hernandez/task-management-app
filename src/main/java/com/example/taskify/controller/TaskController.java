@@ -1,9 +1,10 @@
-package com.example.task_management_app.controller;
+package com.example.taskify.controller;
 
-import com.example.task_management_app.model.Task;
-import com.example.task_management_app.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.taskify.model.Task;
+import com.example.taskify.service.TaskService;
 
 import java.util.List;
 

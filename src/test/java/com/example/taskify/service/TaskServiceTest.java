@@ -1,12 +1,14 @@
-package com.example.task_management_app.service;
+package com.example.taskify.service;
 
-import com.example.task_management_app.model.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapdb.HTreeMap;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import com.example.taskify.model.Task;
+import com.example.taskify.service.TaskService;
 
 import java.util.ArrayList;
 import java.util.List;
